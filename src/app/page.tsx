@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { getUser } from "../../actions/getUser";
 import LoginForm from "./login/LoginForm";
 import Welcome from '../component/Welcome'
