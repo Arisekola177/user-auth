@@ -52,31 +52,8 @@ export async function POST(req: Request): Promise<NextResponse> {
 }
 
 
-type ActivateUserFunc = (jwtUserid: string)=> Promise <'userNotExist' | 'alreadyActivated' | 'success'>;
 
-export const activateUser:ActivateUserFunc = async (jwtUserId) => {
-  const payload = verifyJwt(jwtUserId)
 
-  const userId = payload?.id
-
-  const user = await prisma.user.findUnique({
-    where: {
-      id: userId
-    }
-  })
-
-  if(!user) return 'userNotExist'
-  if(user.emailVerified) return 'alreadyActivated'
-  const result = await prisma.user.update({
-    where: {
-      id: userId
-    },
-    data: {
-      emailVerified : new Date()
-    }
-  })
-  return 'success'
-}
 
 
 
