@@ -21,8 +21,8 @@ interface User {
 
 const Welcome: React.FC<User> = ({ currentUser }) => {
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
-      <div className='w-[500px] h-auto bg-transparent border-[1px] border-purple-600 rounded-md shadow-md'>
+    <div className='w-full h-screen flex px-4 items-center justify-center overflow-hidden'>
+      <div className='w-[500px]  h-auto bg-transparent border-[1px] border-purple-600 rounded-md shadow-md'>
       <h2 className='py-2 text-sm text-center font-medium text-green-500'>
             Thank you {currentUser && currentUser.username} for trying out this feature.
           </h2>
